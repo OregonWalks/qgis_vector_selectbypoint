@@ -23,6 +23,7 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
+from qgis.gui import *
 # Initialize Qt resources from file resources.py
 import resources_rc
 # Import the code for the dialog
@@ -35,6 +36,13 @@ class vector_selectbypoint:
     def __init__(self, iface):
         # Save reference to the QGIS interface
         self.iface = iface
+        
+        # Reference map canvas
+        self.canvas = self.iface.mapCanvas()
+        
+        # Emit QgsPoint after each click on canvas
+        self.clickTool = QgsMapToolEmitPoint(self.canvas)
+        
         # initialize plugin directory
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -62,6 +70,13 @@ class vector_selectbypoint:
         # Add toolbar button and menu item
         self.iface.addToolBarIcon(self.action)
         self.iface.addPluginToMenu(u"&Select vector features by point and click.", self.action)
+        
+        # Signal connections for mouse clicks
+        result = QObject.connect(self.clickTool,  SIGNAL("canvasClicked(const QgsPoint &, Qt::MouseButton)"),  self.handleMouseDown)
+        QMessageBox.information( self.iface.mainWindow(),  "Info",  "connect = %s" %str(result) )
+        
+    def handleMouseDown(self,  point,  button):
+        QMessageBox.information( self.iface.mainWindow(),  "Info",  "X,Y = %s, %s" % (str(point.x()), str(point.y())) )
 
     def unload(self):
         # Remove the plugin menu item and icon
@@ -70,6 +85,9 @@ class vector_selectbypoint:
 
     # run method that performs all the real work
     def run(self):
+        # Activate click tool
+        self.canvas.setMapTool( self.clickTool )
+        
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
@@ -79,3 +97,4 @@ class vector_selectbypoint:
             # do something useful (delete the line containing pass and
             # substitute with your code)
             pass
+
