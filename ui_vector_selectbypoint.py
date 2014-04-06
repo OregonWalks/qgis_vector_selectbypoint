@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_vector_selectbypoint.ui'
 #
-# Created: Mon Apr  7 00:13:34 2014
+# Created: Mon Apr  7 00:34:57 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -23,6 +23,12 @@ class Ui_vector_selectbypoint(object):
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
+        self.txtFeedback = QtGui.QTextBrowser(vector_selectbypoint)
+        self.txtFeedback.setGeometry(QtCore.QRect(10, 10, 381, 201))
+        self.txtFeedback.setObjectName(_fromUtf8("txtFeedback"))
+        self.chkActivate = QtGui.QCheckBox(vector_selectbypoint)
+        self.chkActivate.setGeometry(QtCore.QRect(10, 220, 89, 31))
+        self.chkActivate.setObjectName(_fromUtf8("chkActivate"))
 
         self.retranslateUi(vector_selectbypoint)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), vector_selectbypoint.accept)
@@ -31,4 +37,6 @@ class Ui_vector_selectbypoint(object):
 
     def retranslateUi(self, vector_selectbypoint):
         vector_selectbypoint.setWindowTitle(QtGui.QApplication.translate("vector_selectbypoint", "vector_selectbypoint", None, QtGui.QApplication.UnicodeUTF8))
+        self.chkActivate.setText(QtGui.QApplication.translate("vector_selectbypoint", "Activate\n"
+" (Check)", None, QtGui.QApplication.UnicodeUTF8))
 
