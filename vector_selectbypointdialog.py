@@ -33,4 +33,11 @@ class vector_selectbypointDialog(QtGui.QDialog, Ui_vector_selectbypoint):
         # self.<objectname>, and you can use autoconnect slots - see
         # http://qt-project.org/doc/qt-4.8/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
+        self.ui = Ui_vector_selectbypoint()
         self.setupUi(self)
+        
+    def setTextBrowser(self, output):
+        self.ui.txtFeedback.setText(output)
+        
+    def clearTextBrowser(self):
+        self.ui.txtFeedback.clear()

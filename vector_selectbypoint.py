@@ -58,6 +58,9 @@ class vector_selectbypoint:
 
         # Create the dialog (after translation) and keep reference
         self.dlg = vector_selectbypointDialog()
+        
+        # Create the GUI
+        self.canvas.setMapTool( self.clickTool )
 
     def initGui(self):
         # Create action that will start plugin configuration
@@ -73,10 +76,12 @@ class vector_selectbypoint:
         
         # Signal connections for mouse clicks
         result = QObject.connect(self.clickTool,  SIGNAL("canvasClicked(const QgsPoint &, Qt::MouseButton)"),  self.handleMouseDown)
-        QMessageBox.information( self.iface.mainWindow(),  "Info",  "connect = %s" %str(result) )
+        #QMessageBox.information( self.iface.mainWindow(),  "Info",  "connect = %s" %str(result) )
         
     def handleMouseDown(self,  point,  button):
-        QMessageBox.information( self.iface.mainWindow(),  "Info",  "X,Y = %s, %s" % (str(point.x()), str(point.y())) )
+        #QMessageBox.information( self.iface.mainWindow(),  "Info",  "X,Y = %s, %s" % (str(point.x()), str(point.y())) )
+        self.dlg.clearTextBrowser()
+        self.dlg.setTextBrowser( str(point.x()) + " , " + str(point.y()) )
 
     def unload(self):
         # Remove the plugin menu item and icon
@@ -86,7 +91,7 @@ class vector_selectbypoint:
     # run method that performs all the real work
     def run(self):
         # Activate click tool
-        self.canvas.setMapTool( self.clickTool )
+        
         
         # show the dialog
         self.dlg.show()
