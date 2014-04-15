@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_vector_selectbypoint.ui'
 #
-# Created: Mon Apr  7 00:34:57 2014
+# Created: Tue Apr 15 19:02:09 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,17 +17,17 @@ except AttributeError:
 class Ui_vector_selectbypoint(object):
     def setupUi(self, vector_selectbypoint):
         vector_selectbypoint.setObjectName(_fromUtf8("vector_selectbypoint"))
-        vector_selectbypoint.resize(400, 300)
+        vector_selectbypoint.resize(400, 133)
         self.buttonBox = QtGui.QDialogButtonBox(vector_selectbypoint)
-        self.buttonBox.setGeometry(QtCore.QRect(30, 240, 341, 32))
+        self.buttonBox.setGeometry(QtCore.QRect(30, 90, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.txtFeedback = QtGui.QTextBrowser(vector_selectbypoint)
-        self.txtFeedback.setGeometry(QtCore.QRect(10, 10, 381, 201))
+        self.txtFeedback.setGeometry(QtCore.QRect(10, 10, 381, 51))
         self.txtFeedback.setObjectName(_fromUtf8("txtFeedback"))
         self.chkActivate = QtGui.QCheckBox(vector_selectbypoint)
-        self.chkActivate.setGeometry(QtCore.QRect(10, 220, 89, 31))
+        self.chkActivate.setGeometry(QtCore.QRect(10, 70, 89, 31))
         self.chkActivate.setObjectName(_fromUtf8("chkActivate"))
 
         self.retranslateUi(vector_selectbypoint)
